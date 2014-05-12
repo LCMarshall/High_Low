@@ -13,14 +13,13 @@ do {
 	// Write the output
 	// Get the input from user
 	$users_guess = (int) fgets (STDIN);
+	$guesses++; 
 	if ($users_guess < $number){
 		echo "Too low, Please pick another number\n";
 	} else if ($users_guess > $number) {
 		echo "Too high, Please pick another number\n";
-	}
-	$guesses++; 
-	
-} while ($users_guess != $number);
+	}	
+	} while ($users_guess != $number);
 
 echo "Good Guess!!\n";
 fwrite (STDOUT, "You guessed right in $guesses guesses! \n");
