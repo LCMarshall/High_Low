@@ -3,6 +3,7 @@
 //computer assigns a random number
 
 $number = rand(1, 100);
+$guesses = 0;
 
 //If users guess is correct echo you won, 
 //If users guess is wrong, tell user too high or too low
@@ -17,7 +18,9 @@ do {
 	} else if ($users_guess > $number) {
 		echo "Too high, Please pick another number\n";
 	}
+	$guesses++; 
 	
 } while ($users_guess != $number);
 
-echo "YOU WIN!!\n";
+echo "Good Guess!!\n";
+fwrite (STDOUT, "You guessed right in $guesses guesses! \n");
