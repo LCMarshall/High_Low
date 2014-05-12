@@ -1,14 +1,27 @@
 <?php
 
 //computer assigns a random number
+if ($argc == 3){
 
-$number = rand(1, 100);
+	$min = $argv[1];
+	$max = $argv[2];
+} else {
+	echo "Please give me two numbers. A minimum first and then a maximum.";
+	exit (0);
+}
+if (!is_numeric ($min) || !is_numeric ($max)){
+	echo "Must be numeric.";
+	exit (0);
+}
+
+
+$number = rand($min, $max);
 $guesses = 0;
 
 //If users guess is correct echo you won, 
 //If users guess is wrong, tell user too high or too low
 do {
-	fwrite(STDOUT, 'Guess a number between 1-100. ');
+	fwrite(STDOUT, "Guess a number between the {$min} and {$max}. ");
 
 	// Write the output
 	// Get the input from user
